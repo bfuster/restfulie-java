@@ -18,6 +18,7 @@
 package br.com.caelum.restfulie.http.apache;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.util.List;
 import java.util.Map;
@@ -80,6 +81,13 @@ public class ApacheResponse implements Response {
 		String contentType = getContentType();
 		String content = getContent();
 		return (T) client.getMediaTypes().forContentType(contentType).unmarshal(content, client);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public <T> T getResource(Type type) throws IOException {
+		String contentType = getContentType();
+		String content = getContent();
+		return (T) client.getMediaTypes().forContentType(contentType).unmarshal(content, client, type);
 	}
 
 	private String getContentType() throws IOException {

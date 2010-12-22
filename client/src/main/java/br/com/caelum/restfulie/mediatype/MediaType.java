@@ -2,6 +2,7 @@ package br.com.caelum.restfulie.mediatype;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.lang.reflect.Type;
 
 import br.com.caelum.restfulie.RestClient;
 
@@ -24,4 +25,10 @@ public interface MediaType {
 	 */
 	<T> T unmarshal(String content, RestClient client);
 
+	/**
+	 * Unmarshalling should always be to something to be analyzed.<br/>
+	 * Remember *not* to expect too much from unmarshalling, your server might
+	 * have provided you something you did not expect. This is REST's idea.
+	 */
+	<T> T unmarshal(String content, RestClient client, Type type);
 }

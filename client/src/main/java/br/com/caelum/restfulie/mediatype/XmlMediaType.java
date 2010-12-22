@@ -2,6 +2,7 @@ package br.com.caelum.restfulie.mediatype;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -71,6 +72,11 @@ public class XmlMediaType implements MediaType {
 	public <T> T unmarshal(String content, RestClient client) {
 		getXstream().registerConverter(new DefaultLinkConverter(client));
 		return (T) getXstream().fromXML(content);
+	}
+	
+	public <T> T unmarshal(String content, RestClient client, Type type) {
+		//TODO no xml by now
+		return null;
 	}
 
 	private List<Class> getTypesToEnhance() {

@@ -4,9 +4,22 @@
 	<groupId>br.com.caelum</groupId>
 	<artifactId>restfulie-java-client</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.0-beta-2</version>
+	<version>1.0.0-beta-3</version>
 	<name>restfulie-java-client</name>
 	<url>http://restfulie.caelum.com.br</url>
+
+	<repositories>
+		<repository>
+			<id>gson</id>
+			<url>http://google-gson.googlecode.com/svn/mavenrepo</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
 
 	<dependencies>
 		<dependency>
@@ -20,9 +33,9 @@
 			<version>1.2</version>
 		</dependency>
 		<dependency>
-		    <groupId>stax</groupId>
-		    <artifactId>stax</artifactId>
-		    <version>1.2.0</version>
+			<groupId>stax</groupId>
+			<artifactId>stax</artifactId>
+			<version>1.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.thoughtworks.xstream</groupId>
@@ -52,7 +65,12 @@
 			<artifactId>inflector</artifactId>
 			<version>0.7.0</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>1.6</version>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 
 

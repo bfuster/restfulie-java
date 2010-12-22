@@ -16,7 +16,6 @@ import br.com.caelum.restfulie.RestClient;
 import br.com.caelum.restfulie.RestfulieException;
 import br.com.caelum.restfulie.http.ContentProcessor;
 import br.com.caelum.restfulie.http.HttpURLConnectionContentProcessor;
-import br.com.caelum.restfulie.http.IdentityContentProcessor;
 import br.com.caelum.restfulie.http.Request;
 
 public class ApacheHttpRequest implements Request {
@@ -47,7 +46,7 @@ public class ApacheHttpRequest implements Request {
 			Writer writer = new OutputStreamWriter(output);
 			client.getMediaTypes().forContentType(headers.get("Content-type")).marshal(payload, writer);
 			ApacheResponse response = responseFor(connection,
-					new IdentityContentProcessor());
+					new HttpURLConnectionContentProcessor(connection));
 			if (response.getCode() == 201) {
 				Request request = client.at(response.getHeader("Location").get(0));
 				for(String h : headers.keySet()) {

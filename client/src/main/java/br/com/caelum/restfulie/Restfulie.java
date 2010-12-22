@@ -49,7 +49,7 @@ public class Restfulie {
 	 */
 	public static Request at(URI uri) {
 		RestClient client = custom();
-		return client.getProvider().request(uri, client).accept("application/xml");
+		return client.getProvider().request(uri, client).accept("application/json");
 	}
 
 	/**

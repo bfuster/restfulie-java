@@ -18,6 +18,7 @@
 package br.com.caelum.restfulie;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.List;
 
 /**
@@ -42,4 +43,10 @@ public interface Response {
 	 */
 	public <T> T getResource() throws IOException;
 	
+	/**
+	 * Returns the resource if any resource can be parsed from this response's content.
+	 * @throws IOException 
+	 */
+	public <T> T getResource(Type type) throws IOException;
+
 }
