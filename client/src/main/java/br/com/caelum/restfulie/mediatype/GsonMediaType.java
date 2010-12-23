@@ -6,7 +6,6 @@ import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -19,7 +18,7 @@ import com.google.gson.Gson;
 /**
  * GSON implementation
  *
- * @author bruno fuster
+ * @author brunofuster
  */
 @SuppressWarnings("unchecked")
 public class GsonMediaType implements MediaType {
@@ -54,14 +53,7 @@ public class GsonMediaType implements MediaType {
 		try {
 			
 			JSONObject obj = new JSONObject(content);
-			Iterator<String> keys = obj.keys();
-			String identifier = null;
-			while (keys.hasNext()) {
-				identifier = keys.next();
-				break;
-			}
-			
-			o = obj.get(identifier);
+			o = obj.get((String)obj.keys().next()); 
 			
 			return new Gson().fromJson(o.toString(), type);
 			

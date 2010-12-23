@@ -44,7 +44,9 @@ public interface Response {
 	public <T> T getResource() throws IOException;
 	
 	/**
-	 * Returns the resource if any resource can be parsed from this response's content.
+	 * Returns the resource. If any error is found while parsing into defined type, 
+	 * you'll get the response string. A type is needed for Gson.
+	 * 
 	 * @throws IOException 
 	 */
 	public <T> T getResource(Type type) throws IOException;

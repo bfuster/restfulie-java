@@ -75,7 +75,7 @@ public class XmlMediaType implements MediaType {
 	}
 	
 	public <T> T unmarshal(String content, RestClient client, Type type) {
-		//TODO no xml by now
+		//TODO no type needed to use xstream, just gson
 		return null;
 	}
 
