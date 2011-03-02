@@ -14,6 +14,7 @@ import org.codehaus.jettison.json.JSONObject;
 import br.com.caelum.restfulie.RestClient;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
  * GSON implementation
@@ -55,7 +56,8 @@ public class GsonMediaType implements MediaType {
 			JSONObject obj = new JSONObject(content);
 			o = obj.get((String)obj.keys().next()); 
 			
-			return new Gson().fromJson(o.toString(), type);
+			Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss.SSS zzz").create();
+			return gson.fromJson(o.toString(), type);
 			
 		} catch (Exception e) {
 	
